@@ -1,0 +1,19 @@
+{
+  "name": "@ufs/cli",
+  "version": "1.0.0",
+  "description": "ufs cli",
+  "main": "bin/index.js",
+  "bin": {
+    "ufs": "bin/index.js"
+  },
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "rimraf ./dist && tsup src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^10.3.10"
+  }
+}

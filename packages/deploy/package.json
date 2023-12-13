@@ -1,0 +1,12 @@
+{
+  "name": "@ufs/deploy",
+  "version": "1.0.0",
+  "description": "ufs deploy module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf ./dist && tsup src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
