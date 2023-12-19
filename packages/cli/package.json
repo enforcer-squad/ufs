@@ -2,9 +2,9 @@
   "name": "@ufs/cli",
   "version": "1.0.0",
   "description": "ufs cli",
-  "main": "bin/index.js",
+  "main": "dist/index.js",
   "bin": {
-    "ufs": "bin/index.js"
+    "ufs": "dist/index.js"
   },
   "scripts": {
     "dev": "tsup src/index.ts --watch",
@@ -14,6 +14,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "glob": "^10.3.10"
+    "glob": "^10.3.10",
+    "root-check": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/root-check": "^1.0.2"
   }
 }

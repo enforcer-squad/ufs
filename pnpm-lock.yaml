@@ -8,6 +8,9 @@ dependencies:
   '@inquirer/prompts':
     specifier: ^3.3.0
     version: 3.3.0
+  adm-zip:
+    specifier: ^0.5.10
+    version: 0.5.10
   commander:
     specifier: ^11.1.0
     version: 11.1.0
@@ -22,9 +25,15 @@ devDependencies:
   '@commitlint/config-conventional':
     specifier: ^18.4.3
     version: 18.4.3
+  '@types/adm-zip':
+    specifier: ^0.5.5
+    version: 0.5.5
   '@types/node':
     specifier: ^20.10.4
     version: 20.10.4
+  '@types/root-check':
+    specifier: ^1.0.2
+    version: 1.0.2
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.14.0
     version: 6.14.0(@typescript-eslint/parser@6.14.0)(eslint@8.55.0)(typescript@5.3.3)
@@ -829,6 +838,12 @@ packages:
     dev: true
     optional: true
 
+  /@types/adm-zip@0.5.5:
+    resolution: {integrity: sha512-YCGstVMjc4LTY5uK9/obvxBya93axZOVOyf2GSUulADzmLhYE45u2nAssCs/fWBs1Ifq5Vat75JTPwd5XZoPJw==}
+    dependencies:
+      '@types/node': 20.10.4
+    dev: true
+
   /@types/json-schema@7.0.15:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
     dev: true
@@ -860,6 +875,10 @@ packages:
 
   /@types/normalize-package-data@2.4.4:
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
+    dev: true
+
+  /@types/root-check@1.0.2:
+    resolution: {integrity: sha512-66X4lNkg2E5Sla9fIRujVRTzzoKZ7f5YmF9R+Mq66cO+Wl75/I2h4BF/P6bBj8FBAuRIjNZMarAE+ZCMJyP68Q==}
     dev: true
 
   /@types/semver@7.5.6:
@@ -1026,6 +1045,11 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
+
+  /adm-zip@0.5.10:
+    resolution: {integrity: sha512-x0HvcHqVJNTPk/Bw8JbLWlWoo6Wwnsug0fnYYro1HBrjxZ3G7/AZk7Ahv8JwDe1uIcz8eBqvu86FuF1POiG7vQ==}
+    engines: {node: '>=6.0'}
+    dev: false
 
   /ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
