@@ -1,21 +1,19 @@
 import https from 'https';
 import path from 'path';
-import { createWriteStream } from 'fs';
-import { unlink, access, mkdir } from 'node:fs/promises';
+import { createWriteStream, accessSync, mkdirSync, readdirSync } from 'fs';
+import { cp, rm } from 'shelljs';
 import AdmZip from 'adm-zip';
 
-const ensureDirectoryExistence = async (filePath: string) => {
-  const dirname = path.dirname(filePath);
+const ensureDirectoryExistence = (dest: string) => {
   try {
-    await access(dirname);
+    accessSync(dest);
   } catch (error) {
-    await mkdir(dirname, { recursive: true });
+    mkdirSync(dest, { recursive: true });
   }
 };
 
-const downloadFile = async (url: string, dest: string) => {
-  await ensureDirectoryExistence(dest);
-  const downloadResultPath = await new Promise((resolve, reject) => {
+const downloadFile = (url: string, dest: string): Promise<string> =>
+  new Promise((resolve, reject) => {
     const downloadZipPath = path.join(dest, '/download.zip');
     const file = createWriteStream(downloadZipPath);
     https
@@ -31,30 +29,42 @@ const downloadFile = async (url: string, dest: string) => {
         reject(err);
       });
   });
-  return downloadResultPath as string;
+
+const unzipFile = (filePath: string, dest: string) => {
+  const unzipPath = path.join(dest, 'temp_unzip');
+  const zip = new AdmZip(filePath);
+  zip.extractAllTo(unzipPath, true);
+  return unzipPath;
 };
 
-const unzipFile = async (filePath: string, dest: string) =>
-  await new Promise((resolve, reject) => {
-    try {
-      const zip = new AdmZip(filePath);
-      zip.extractAllTo(dest, true);
-      resolve('ok');
-    } catch (err) {
-      reject(err);
-    }
-  });
+const copyFiles = (srcDir: string, destDir: string) => {
+  cp('-R', [`${srcDir}/*`, `${srcDir}/.*`], destDir);
+};
 
-const downloadAndUnzip = async (url: string, dest: string, unzipPath: string) => {
+const deleteFiles = (dest: string) => {
+  rm('-rf', dest);
+};
+
+const downloadAndUnzip = async (url: string, root: string) => {
   try {
-    const downloadZipPath = await downloadFile(url, dest);
-    console.log(`Downloaded to ${dest}`);
+    ensureDirectoryExistence(root);
 
-    await unzipFile(downloadZipPath, unzipPath);
-    console.log(`Extracted to ${downloadZipPath}`);
+    const downloadZipPath = await downloadFile(url, root);
+    console.log(`Downloaded to ${downloadZipPath}`);
 
-    await unlink(downloadZipPath);
-    console.log(`Deleted ZIP file: ${dest}`);
+    const unzipPath = unzipFile(downloadZipPath, root);
+    console.log(`Extracted to ${unzipPath}`);
+
+    const files = readdirSync(unzipPath);
+    const srcPath = path.join(unzipPath, files[0]);
+
+    copyFiles(srcPath, root);
+    console.log(`Copied all unzip files to ${root}`);
+
+    deleteFiles(downloadZipPath);
+    deleteFiles(unzipPath);
+
+    console.log(`Deleted zip file: ${downloadZipPath}`);
   } catch (err) {
     console.error('Error:', err);
   }

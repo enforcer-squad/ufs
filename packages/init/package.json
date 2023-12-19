@@ -4,7 +4,7 @@
   "description": "ufs init module",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rimraf ./dist && tsup src/index.ts"
+    "build": "rimraf ./dist && tsup src/index.ts --platform=node --external shelljs"
   },
   "keywords": [],
   "author": "",

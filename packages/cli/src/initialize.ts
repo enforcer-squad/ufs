@@ -23,7 +23,7 @@ const initialize = () => {
       program.outputHelp();
     }
   } catch (error) {
-    console.log('init plugin error');
+    console.log('init plugin error', error);
   }
 };
 
