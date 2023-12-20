@@ -1,6 +1,6 @@
 {
   "name": "@enforcer-squad/ufs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "ultra foundation solution",
   "workspaces": [
     "packages/*"
