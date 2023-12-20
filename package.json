@@ -34,7 +34,7 @@
     "version:minor": "npx standard-version --release-as minor",
     "version:patch": "npx standard-version --release-as patch",
     "release": "pnpm build && pnpm release:only",
-    "release:only": "pnpm publish --access=public --registry=https://registry.npmjs.com/"
+    "release:only": "pnpm publish --registry=https://registry.npmjs.com/"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
