@@ -1,13 +1,19 @@
 {
-  "name": "@ufs/cli",
+  "name": "@enforcer-squad/ufs-cli",
   "version": "1.0.0",
   "description": "ufs cli",
   "main": "dist/index.js",
   "bin": {
     "ufs": "dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "dev": "tsup src/index.ts --watch",
+    "start": "tsup src/index.ts --watch",
     "build": "rimraf ./dist && tsup src/index.ts"
   },
   "keywords": [],

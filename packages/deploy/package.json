@@ -1,9 +1,16 @@
 {
-  "name": "@ufs/deploy",
+  "name": "@enforcer-squad/ufs-deploy",
   "version": "1.0.0",
   "description": "ufs deploy module",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
+    "start": "tsup src/index.ts --watch",
     "build": "rimraf ./dist && tsup src/index.ts"
   },
   "keywords": [],

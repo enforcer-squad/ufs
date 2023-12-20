@@ -1,12 +1,25 @@
 {
-  "name": "@ufs/init",
+  "name": "@enforcer-squad/ufs-init",
   "version": "1.0.0",
   "description": "ufs init module",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
+    "start": "tsup src/index.ts --watch --platform=node",
     "build": "rimraf ./dist && tsup src/index.ts --platform=node --external shelljs"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4"
+  }
 }
