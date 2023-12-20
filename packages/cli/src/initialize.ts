@@ -14,13 +14,11 @@ const initialize = () => {
 
     program.name(cliName).usage('<command> [options]').version(pkg.version);
 
-    const pluginPaths = globSync(pathReg, { ignore: ['dist/index.js'], absolute: true });
+    const pluginPaths = globSync(pathReg, { ignore: ['packages/cli/**'], absolute: true });
 
     pluginPaths.forEach(path => {
       const module = require(path);
-      if (module.default !== undefined) {
-        module.default(program);
-      }
+      module.default(program);
     });
 
     program.parse(process.argv);

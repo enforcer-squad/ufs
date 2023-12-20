@@ -1,6 +1,6 @@
 {
   "name": "@enforcer-squad/ufs-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ufs cli",
   "main": "dist/index.js",
   "bin": {
