@@ -18,7 +18,9 @@ const initialize = () => {
 
     pluginPaths.forEach(path => {
       const module = require(path);
-      module.default(program);
+      if (Object.keys(module).length > 0) {
+        module.default(program);
+      }
     });
 
     program.parse(process.argv);
