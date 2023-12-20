@@ -1,6 +1,6 @@
 {
   "name": "@enforcer-squad/ufs-deploy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ufs deploy module",
   "main": "dist/index.js",
   "files": [

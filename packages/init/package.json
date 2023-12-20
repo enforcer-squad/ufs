@@ -1,6 +1,6 @@
 {
   "name": "@enforcer-squad/ufs-init",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ufs init module",
   "main": "dist/index.js",
   "files": [
