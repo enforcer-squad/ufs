@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/enforcer-squad/ufs/compare/v1.0.1...v1.0.2) (2023-12-20)
+
+
+### Bug Fixes
+
+* 修复发布之后读取插件路径问题 ([6530512](https://github.com/enforcer-squad/ufs/commit/65305123c508d8893cb15b1495c754320de87630))
+
 ### 1.0.1 (2023-12-20)
 
 
