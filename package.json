@@ -1,5 +1,5 @@
 {
-  "name": "@enforcer-squad/ufs",
+  "name": "ufs",
   "version": "1.0.6",
   "description": "ultra foundation solution",
   "private": true,
@@ -30,7 +30,7 @@
     "changeset": "changeset",
     "version": "changeset version",
     "release": "pnpm build && pnpm release:only",
-    "release:only": "pnpm publish --registry=https://registry.npmjs.com/"
+    "release:only": "changeset publish --registry=https://registry.npmjs.com/"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
