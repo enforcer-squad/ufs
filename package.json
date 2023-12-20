@@ -1,10 +1,8 @@
 {
   "name": "@enforcer-squad/ufs",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "ultra foundation solution",
-  "workspaces": [
-    "packages/*"
-  ],
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/enforcer-squad/ufs.git"
@@ -24,7 +22,6 @@
     "access": "public"
   },
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
     "clean": "pnpm --filter=@enforcer-squad/* run clean && rimraf ./node_modules && pnpm i",
