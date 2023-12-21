@@ -1,5 +1,11 @@
 # @enforcer-squad/ufs-init
 
+## 1.0.5
+
+### Patch Changes
+
+- chore: 增加shelljs包
+
 ## 1.0.4
 
 ### Patch Changes
