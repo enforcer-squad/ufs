@@ -1,6 +1,6 @@
 {
   "name": "@enforcer-squad/ufs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "ufs cli",
   "main": "dist/index.js",
   "bin": {
@@ -23,6 +23,6 @@
     "glob": "^10.3.10"
   },
   "peerDependencies": {
-    "@enforcer-squad/ufs-init": "^1.0.1"
+    "@enforcer-squad/ufs-init": "^1.0.4"
   }
 }
