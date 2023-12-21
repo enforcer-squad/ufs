@@ -4,6 +4,7 @@ import { ensureDir, copy, remove } from 'fs-extra';
 import https from 'https';
 import { intro, outro, spinner, text, select, note } from '@clack/prompts';
 import AdmZip from 'adm-zip';
+import { exec, cd } from 'shelljs';
 
 const urlMaps = {
   'product|typescript': 'https://codeload.github.com/enforcer-squad/tpl-react-product-ts/zip/refs/heads/main',
@@ -96,6 +97,9 @@ const initialize = async () => {
     s.start('Start cleaning...');
     await remove(downloadZipPath);
     await remove(unzipPath);
+    cd(projectName);
+    exec('git init .');
+    exec('chmod ug+x .husky/*');
     s.stop('Cleanup completed.');
     const nextSteps = [`cd ${projectName}`, `pnpm install`, `pnpm start`];
 

@@ -10,7 +10,7 @@
     "access": "public"
   },
   "scripts": {
-    "start": "tsup src/index.ts --watch --platform=node",
+    "start": "tsup src/index.ts --watch --platform=node --external shelljs",
     "build": "rimraf ./dist && tsup src/index.ts --platform=node --external shelljs"
   },
   "keywords": [],
