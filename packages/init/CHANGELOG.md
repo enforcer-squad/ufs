@@ -1,5 +1,11 @@
 # @enforcer-squad/ufs-init
 
+## 1.0.6
+
+### Patch Changes
+
+- feat: 修改初始化分支为main
+
 ## 1.0.5
 
 ### Patch Changes
