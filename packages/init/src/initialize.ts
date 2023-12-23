@@ -98,7 +98,7 @@ const initialize = async () => {
     await remove(downloadZipPath);
     await remove(unzipPath);
     cd(projectName);
-    exec('git init .');
+    exec('git init -b main');
     exec('chmod ug+x .husky/*');
     s.stop('Cleanup completed.');
     const nextSteps = [`cd ${projectName}`, `pnpm install`, `pnpm start`];
