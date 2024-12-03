@@ -7,10 +7,14 @@ import AdmZip from 'adm-zip';
 import { exec, cd } from 'shelljs';
 
 const urlMaps = {
-  'product|typescript': 'https://codeload.github.com/enforcer-squad/tpl-react-product-ts/zip/refs/heads/main',
-  'product|javascript': 'https://codeload.github.com/enforcer-squad/tpl-react-product-js/zip/refs/heads/main',
-  'lib|typescript': 'https://codeload.github.com/enforcer-squad/tpl-lib-ts/zip/refs/heads/main',
-  'lib|javascript': 'https://codeload.github.com/enforcer-squad/tpl-lib-js/zip/refs/heads/main',
+  'rspack|product|typescript': 'https://codeload.github.com/enforcer-squad/tpl-react-product-ts-rs/zip/refs/heads/main',
+  'rspack|product|javascript': 'https://codeload.github.com/enforcer-squad/tpl-react-product-js-rs/zip/refs/heads/main',
+  'rspack|lib|typescript': 'https://codeload.github.com/enforcer-squad/tpl-lib-ts-rs/zip/refs/heads/main',
+  'rspack|lib|javascript': 'https://codeload.github.com/enforcer-squad/tpl-lib-js-rs/zip/refs/heads/main',
+  'webpack|product|typescript': 'https://codeload.github.com/enforcer-squad/tpl-react-product-ts/zip/refs/heads/main',
+  'webpack|product|javascript': 'https://codeload.github.com/enforcer-squad/tpl-react-product-js/zip/refs/heads/main',
+  'webpack|lib|typescript': 'https://codeload.github.com/enforcer-squad/tpl-lib-ts/zip/refs/heads/main',
+  'webpack|lib|javascript': 'https://codeload.github.com/enforcer-squad/tpl-lib-js/zip/refs/heads/main',
 };
 
 const sleep = (time: number) => new Promise(resolve => setTimeout(resolve, time));
@@ -53,6 +57,14 @@ const initialize = async () => {
       },
     })) as string;
 
+    const bundleType = (await select({
+      message: 'Select bundler.',
+      options: [
+        { value: 'rspack', label: 'Rspack', hint: 'rspack bundler' },
+        { value: 'webpack', label: 'Webpack', hint: 'webpack bundler' },
+      ],
+    })) as string;
+
     const projectType = (await select({
       message: 'Select project type.',
       options: [
@@ -77,7 +89,7 @@ const initialize = async () => {
     s.stop('Folder creation completed.');
 
     s.start('Start downloading the compressed package...');
-    const key = `${projectType}|${projectLanguage}` as keyof typeof urlMaps;
+    const key = `${bundleType}|${projectType}|${projectLanguage}` as keyof typeof urlMaps;
     const url = urlMaps[key];
     const downloadZipPath = await downloadFile(url, root);
     s.stop('Download completed.');

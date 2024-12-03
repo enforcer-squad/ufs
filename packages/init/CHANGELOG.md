@@ -1,5 +1,11 @@
 # @enforcer-squad/ufs-init
 
+## 1.0.7
+
+### Patch Changes
+
+- feat: 升级bundler
+
 ## 1.0.6
 
 ### Patch Changes
